@@ -15,7 +15,7 @@ class Box {
     }
 
     display(){
-      console.log(this.body.speed);
+      // console.log(this.body.speed);
       if(this.body.speed<7){
         var pos =this.body.position;
         rectMode(CENTER);
@@ -31,8 +31,8 @@ class Box {
       }
     }
     Score(){
-      if(this.Vvsiblity < 200 && this.visiblity > -2000){
-        score = score + 1;
+      if(this.visiblity < 0 && this.visiblity > -10){
+        score++;
      }
   }
 }

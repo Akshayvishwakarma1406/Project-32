@@ -4,7 +4,11 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
-var box,score ;
+var box,score,backgroundImg;
+
+function preload() {
+    getBackGround();
+}
 
 function setup() {
 	createCanvas(1300, 600);
@@ -62,7 +66,7 @@ function draw() {
   if(backgroundImg){
     background(backgroundImg);
   }
-  background("black");
+//   background("black");
   ground1.display();
   ground2.display();
   ground3.display();
@@ -74,38 +78,78 @@ function draw() {
   //pyramid
   box1.display();
   box1.Score();
-//   box1.Score();
+
   box2.display();
-  box3.display();
-  box4.display();
-  box5.display();
-  box6.display();
-  box7.display();
-  box8.display();
-  box9.display();
-  box10.display();
-  box11.display();
-  box12.display();
-  box13.display();
-  box14.display();
-  box15.display();
-  box16.display();
+  box2.Score();
+  
+  box3.display();  
+  box3.Score();
+  
+  box4.display();  
+  box4.Score();
+  
+  box5.display();  
+  box5.Score();
+  
+  box6.display();  
+  box6.Score();
+  
+  box7.display();  
+  box7.Score();
+  
+  box8.display();  
+  box8.Score();
+  
+  box9.display();  
+  box9.Score();
+  
+  box10.display();  
+  box10.Score();
+  
+  box11.display();  
+  box11.Score();
+  
+  box12.display();  
+  box12.Score();
+  
+  box13.display();  
+  box13.Score();
+  
+  box14.display();  
+  box14.Score();
+  
+  box15.display();  
+  box15.Score();
+  
+  box16.display();  
+  box16.Score();
+  
+  //TOP PYRAMID
   boxT1.display();
   boxT1.Score();
-  boxT2.display();
-  boxT3.display();
-  boxT4.display();
-  boxT5.display();
-  boxT6.display();
+  
+  boxT2.display();  
+  boxT2.Score();
+  
+  boxT3.display();  
+  boxT3.Score();
+  
+  boxT4.display();  
+  boxT4.Score();
+  
+  boxT5.display();  
+  boxT5.Score();
+  
+  boxT6.display();  
+  boxT6.Score();
+
   slingShot.display();
 
-  
-//   drawSprites();
 	stroke("red");
 	strokeWeight(5);
 	fill("white");
 	textSize(30);
-	text("Score : " + score,1000,50);
+	text("SCORE : " + score,1000,50);
  
 }
 
@@ -125,15 +169,19 @@ function keyPressed(){
 }
 
 async function getBackGround(){
-    var responce = await fetch("http://worldtimeapi.org/api/timezone/Asia/Tokyo");
+    var responce = await fetch("http://worldtimeapi.org/api/timezone/America/Los_Angeles");
     var respJson = await responce.json();
     var Datetime = respJson.datetime;
     var hour = Datetime.slice(11,13);
+    console.log(hour);
+
     if(hour >= 6 && hour < 19){
-        bg = "sunny.jpg";
+        bg = "bg.jpg";
+        // bg = color("green");
     }
     else{
-        bg = "night.jpg";
+        bg = "bg(2).jpg";
+        // bg = color("red");
     }
     backgroundImg = loadImage(bg);
 }
